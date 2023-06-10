@@ -1,20 +1,29 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
+function Details() {
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const movieDetails = useSelector(state => state.movieDetails);
 
-export default function Details() {
-    const details = useSelector(store => store.movieDetails);
+  useEffect(() => {
+    dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: { id } });
+  }, [dispatch, id]);
 
-
-    return (
-        <>
-        {movieDetails.map(detail => (
-
-        )
-        
-        ) 
-
-        }
-        </>
-    )
+  return (
+    <>
+    <main>
+      <h1>Movie Details</h1>
+      <section>
+        <h2>Title: {movieDetails.title}</h2>
+        <img src={movieDetails.poster} alt={movieDetails.title} />
+        <p>Description: {movieDetails.description}</p>
+        <p>Genre: {movieDetails.genre}</p>
+      </section>
+    </main>
+    </>
+  );
 }
+
+export default Details;

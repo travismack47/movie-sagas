@@ -16,14 +16,14 @@ router.get('/', (req, res) => {
 
 });
 // GET request/pool query to retrieve specific movie details based on ID number
-router.get('/:id', (req, res) => {
+router.get('/details/:id', (req, res) => {
   const poolQuery = 
   `SELECT m.title, m.poster, m.description, g.name AS genre
   FROM movies AS m
   JOIN movies_genres AS mg ON m.id = mg.movie_id
   JOIN genres AS g ON mg.genre_id = g.id
   WHERE m.id = $1;`;
-  pool.query(poolQuery, req.params.id)
+  pool.query(poolQuery, [req.params.id])
   .then( result => {
     res.send(result.rows);
   })
