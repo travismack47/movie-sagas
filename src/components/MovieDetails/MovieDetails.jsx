@@ -48,6 +48,7 @@ function MovieDetails() {
     };
   
     return (
+        <>
       <main>
         <div className={classes.detailsContainer}>
           <Typography variant="h1" className={classes.title}>
@@ -71,6 +72,7 @@ function MovieDetails() {
           Home
         </Button>
       </main>
+      </>
     );
   }
 
