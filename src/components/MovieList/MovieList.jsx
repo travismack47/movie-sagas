@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     heading: {
-        marginBottom: theme.spacing(2), // Adjust the spacing as needed
+        marginBottom: theme.spacing(2) // Adjust the spacing as needed
     },
 }));
 
@@ -21,6 +21,7 @@ function MovieList() {
     }, []);
 
     return (
+        <>
         <main>
             <Typography variant='h2'>Movies Saga!</Typography>
             <Typography variant="h3" className={classes.heading}>
@@ -45,6 +46,7 @@ function MovieList() {
                 ))}
             </Grid>
         </main>
+        </>
     );
 }
 

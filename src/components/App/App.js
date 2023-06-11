@@ -8,8 +8,9 @@ function App() {
 
   return (
     //Routes for different pages of the application
-    <div className="App">
-      <Router>
+    <>
+    <div className="App"> 
+      <Router> 
         <Route path="/" exact>
           <MovieList />
         </Route>
@@ -18,6 +19,7 @@ function App() {
         </Route>
       </Router>
     </div>
+    </>
   );
 }
 

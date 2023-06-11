@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 // GET request/pool query to retrieve specific movie details based on ID number
 router.get('/details/:id', (req, res) => {
-  const poolQuery = 
+  const poolQuery = // JOIN query to merge data together from different tables
     `SELECT m.title, m.poster, m.description, 
      STRING_AGG(g.name, ', ') AS genres
      FROM movies AS m

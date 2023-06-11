@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { Typography, Button, makeStyles } from '@material-ui/core';
 
+// MaterialUI styling
 const useStyles = makeStyles(theme => ({
   detailsContainer: {
-    textAlign: 'center',
+    textAlign: 'center'
   },
   title: {
     marginBottom: theme.spacing(2),
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
 }));
-
+// End styling
 
 function MovieDetails() {
     const classes = useStyles();
