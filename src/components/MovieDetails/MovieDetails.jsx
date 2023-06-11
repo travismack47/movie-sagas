@@ -12,7 +12,7 @@ function Details() {
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: { id } });
     }, [dispatch, id]);
-
+    // Click handler to bring user to homepage from details page
     const handleClick = () => {
         history.push('/');
     };

@@ -29,7 +29,7 @@ function* fetchAllMovies() {
     };
         
 };
-
+// Generator function to get details of movie when movie is clicked
 function* fetchMovieDetails(action) {
     try {
         const movieDetails = yield axios.get(`/api/movie/details/${action.payload.id}`);
@@ -62,7 +62,7 @@ const genres = (state = [], action) => {
             return state;
     };
 };
-
+// Used to store movie details
 const movieDetails = (state = {}, action) => {
     switch (action.type) {
       case 'SET_MOVIE_DETAILS':

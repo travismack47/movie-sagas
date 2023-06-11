@@ -8,6 +8,7 @@ function MovieList() {
     const dispatch = useDispatch();
     const movies = useSelector(store => store.movies);
 
+    // Fetches movies upon render
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
@@ -17,14 +18,14 @@ function MovieList() {
         <main>
             <h1>MovieList</h1>
             <section className="movies">
-                {movies.map(movie => {
+                {movies.map(movie => { // Map to loop over the movie list and display each one
                     return (
                         <div key={movie.id}>
                             <h3>{movie.title}</h3>
                             <img
                                 src={movie.poster}
                                 alt={movie.title}
-                                onClick={() => {
+                                onClick={() => { // In-line dispatch and history push for displaying movie details when movie is clicked
                                     dispatch({
                                         type: "FETCH_MOVIE_DETAILS",
                                         payload: { id: movie.id },

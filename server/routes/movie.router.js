@@ -27,7 +27,7 @@ router.get('/details/:id', (req, res) => {
      GROUP BY m.title, m.poster, m.description;`;
   pool.query(poolQuery, [req.params.id])
     .then(result => {
-      res.send(result.rows[0]);
+      res.send(result.rows[0]); // Sends first result back to the client 
     })
     .catch(error => {
       console.log('Error getting details', error);

@@ -1,24 +1,22 @@
 import {HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import MovieList from '../MovieList/MovieList'
-import Details from '../Details/Details';
+import Details from '../MovieDetails/MovieDetails';
 
 
 function App() {
 
-  return (
+  return ( 
+    //Routes for different pages of the application
     <div className="App">
       <h1>The Movies Saga!</h1>
-      <Router>        
+      <Router> 
         <Route path="/" exact>
           <MovieList />
         </Route>
        <Route exact path='/api/movie/details/:id'>
         <Details />
         </Route> 
-       
-
-        {/* Add Movie page */}
       </Router>
     </div>
   );
