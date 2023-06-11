@@ -18,21 +18,22 @@ router.get('/', (req, res) => {
 // GET request/pool query to retrieve specific movie details based on ID number
 router.get('/details/:id', (req, res) => {
   const poolQuery = 
-  `SELECT m.title, m.poster, m.description, g.name AS genre
-  FROM movies AS m
-  JOIN movies_genres AS mg ON m.id = mg.movie_id
-  JOIN genres AS g ON mg.genre_id = g.id
-  WHERE m.id = $1;`;
+    `SELECT m.title, m.poster, m.description, 
+     STRING_AGG(g.name, ', ') AS genres
+     FROM movies AS m
+     LEFT JOIN movies_genres AS mg ON m.id = mg.movie_id
+     LEFT JOIN genres AS g ON mg.genre_id = g.id
+     WHERE m.id = $1
+     GROUP BY m.title, m.poster, m.description;`;
   pool.query(poolQuery, [req.params.id])
-  .then( result => {
-    res.send(result.rows);
-  })
-  .catch( error => {
-    console.log('Error getting details', error);
-    res.sendStatus(500);
-  });
+    .then(result => {
+      res.send(result.rows[0]);
+    })
+    .catch(error => {
+      console.log('Error getting details', error);
+      res.sendStatus(500);
+    });
 });
-
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie

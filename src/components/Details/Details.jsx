@@ -19,7 +19,7 @@ function Details() {
         <h2>Title: {movieDetails.title}</h2>
         <img src={movieDetails.poster} alt={movieDetails.title} />
         <p>Description: {movieDetails.description}</p>
-        <p>Genre: {movieDetails.genre}</p>
+        <p>Genre: {movieDetails.genres}</p>
       </section>
     </main>
     </>
