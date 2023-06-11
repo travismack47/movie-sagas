@@ -2,7 +2,7 @@
 
 - Created an app that pulls a list of movies from a SQL database and displays the titles and pictures of the movies on the home page.
 - When a picture of a movie is clicked, it brings the user to a details page for that movie.
-- On the details page, it tells you the title of the movie, the description, and the genre/genres the movie is a part of.
+- On the details page, it tells you the title of the movie, the poster picture, the description, and the genre/genres the movie is a part of.
 - There is also a home button on the details page which brings the user back to the home page when clicked.
 
 ## Languages/Libraries/Frameworks/Programs Used
