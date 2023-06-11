@@ -9,7 +9,6 @@ function App() {
   return ( 
     //Routes for different pages of the application
     <div className="App">
-      <h1>The Movies Saga!</h1>
       <Router> 
         <Route path="/" exact>
           <MovieList />

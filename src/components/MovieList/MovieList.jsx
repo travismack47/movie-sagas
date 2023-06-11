@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './MovieList.css'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Grid, Typography } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
 function MovieList() {
     const history = useHistory();
@@ -13,31 +13,30 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-
     return (
         <main>
-            <h1>MovieList</h1>
-            <section className="movies">
-                {movies.map(movie => { // Map to loop over the movie list and display each one
-                    return (
-                        <div key={movie.id}>
-                            <h3>{movie.title}</h3>
-                            <img
-                                src={movie.poster}
-                                alt={movie.title}
-                                onClick={() => { // In-line dispatch and history push for displaying movie details when movie is clicked
-                                    dispatch({
-                                        type: "FETCH_MOVIE_DETAILS",
-                                        payload: { id: movie.id },
-                                    });
-                                    history.push(`/api/movie/details/${movie.id}`);
-                                }}
-                            />
-                        </div>
-                    );
-                })}
-            </section>
+            <Typography variant='h1'>Movies Saga!</Typography>
+            <Typography variant="h3">List of Films</Typography>
+            <Grid container spacing={2}>
+                {movies.map(movie => (
+                    <Grid item xs={12} sm={6} md={4} key={movie.id}>
+                        <Typography variant="h3">{movie.title}</Typography>
+                        <img
+                            src={movie.poster}
+                            alt={movie.title}
+                            onClick={() => {
+                                dispatch({
+                                    type: 'FETCH_MOVIE_DETAILS',
+                                    payload: { id: movie.id },
+                                });
+                                history.push(`/api/movie/details/${movie.id}`);
+                            }}
+                        />
+                    </Grid>
+                ))}
+            </Grid>
         </main>
-    )
+    );
 }
+
 export default MovieList;
