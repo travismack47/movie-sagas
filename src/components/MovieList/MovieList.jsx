@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 
+// MaterialUI styling
 const useStyles = makeStyles(theme => ({
     heading: {
         fontStyle: 'italic',
@@ -35,12 +36,12 @@ function MovieList() {
                         <img
                             src={movie.poster}
                             alt={movie.title}
-                            onClick={() => {
+                            onClick={() => { //In-line function with dispatch to get movie details when image is clicked
                                 dispatch({
                                     type: 'FETCH_MOVIE_DETAILS',
                                     payload: { id: movie.id },
                                 });
-                                history.push(`/api/movie/details/${movie.id}`);
+                                history.push(`/api/movie/details/${movie.id}`); // Brings user to homepage when HOME button is clicked
                             }}
                         />
                     </Grid>
