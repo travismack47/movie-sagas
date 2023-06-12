@@ -57,10 +57,10 @@ function MovieDetails() {
             Movie Details
           </Typography>
           <section> 
-            <Typography variant="h2">Title: {movieDetails.title}</Typography> 
+            <Typography variant="h2">{movieDetails.title}</Typography> 
             <img src={movieDetails.poster} alt={movieDetails.title} />
             <Typography variant="body1" className={classes.description}>
-              Description: {movieDetails.description}
+              {movieDetails.description}
             </Typography>
             <Typography variant="body1">Genre: {movieDetails.genres}</Typography>
           </section>
