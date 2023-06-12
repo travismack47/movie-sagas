@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
   homeButton: {
     fontSize: '1.5rem',
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(25.5),
     padding: theme.spacing(2),
     borderRadius: '50%',
     textTransform: 'uppercase',
@@ -55,8 +55,8 @@ function MovieDetails() {
           <Typography variant="h1" className={classes.title}>
             Movie Details
           </Typography>
-          <section>
-            <Typography variant="h2">Title: {movieDetails.title}</Typography>
+          <section> 
+            <Typography variant="h2">Title: {movieDetails.title}</Typography> 
             <img src={movieDetails.poster} alt={movieDetails.title} />
             <Typography variant="body1" className={classes.description}>
               Description: {movieDetails.description}
