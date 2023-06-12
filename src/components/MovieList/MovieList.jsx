@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     heading: {
+        fontStyle: 'italic',
         marginBottom: theme.spacing(2) // Adjust the spacing as needed
     },
 }));

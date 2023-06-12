@@ -7,6 +7,7 @@ import { Typography, Button, makeStyles } from '@material-ui/core';
 // MaterialUI styling
 const useStyles = makeStyles(theme => ({
   detailsContainer: {
+    fontStyle: 'italic',
     textAlign: 'center'
   },
   title: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   },
   homeButton: {
     fontSize: '1.5rem',
-    marginTop: theme.spacing(25.5),
+    marginTop: theme.spacing(25.2),
     padding: theme.spacing(2),
     borderRadius: '50%',
     textTransform: 'uppercase',
@@ -38,7 +39,7 @@ function MovieDetails() {
     const dispatch = useDispatch();
     const movieDetails = useSelector(state => state.movieDetails);
 
-  
+  // useEffect for fetching things on re-render
     useEffect(() => {
       dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: { id } });
     }, [dispatch, id]);
