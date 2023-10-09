@@ -15,7 +15,7 @@ function MovieList() {
     const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
-    const movies = useSelector(store => store.movies);
+    const movies = useSelector(store => store.movies); // Grabbing movies from the store // 
 
     // Fetches movies upon render
     useEffect(() => {
@@ -36,12 +36,12 @@ function MovieList() {
                         <img
                             src={movie.poster}
                             alt={movie.title}
-                            onClick={() => { //In-line function with dispatch to get movie details when image is clicked
+                            onClick={() => { // In-line function with dispatch to get movie details when image is clicked // 
                                 dispatch({
                                     type: 'FETCH_MOVIE_DETAILS',
                                     payload: { id: movie.id },
                                 });
-                                history.push(`/api/movie/details/${movie.id}`); // Brings user to homepage when HOME button is clicked
+                                history.push(`/api/movie/details/${movie.id}`); // Brings user to homepage when HOME button is clicked // 
                             }}
                         />
                     </Grid>

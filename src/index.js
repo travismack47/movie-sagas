@@ -86,7 +86,7 @@ const storeInstance = createStore(
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(
+ReactDOM.render( // Provider allows us to use redux within our react app //
     <React.StrictMode>
         <Provider store={storeInstance}>
         <App />

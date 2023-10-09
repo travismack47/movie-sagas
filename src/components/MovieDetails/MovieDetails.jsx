@@ -37,7 +37,7 @@ function MovieDetails() {
     const history = useHistory();
     const { id } = useParams();
     const dispatch = useDispatch();
-    const movieDetails = useSelector(state => state.movieDetails);
+    const movieDetails = useSelector(state => state.movieDetails); // Grabbing movie details from the store // 
 
   // useEffect for fetching things on re-render
     useEffect(() => {
@@ -65,10 +65,10 @@ function MovieDetails() {
             <Typography variant="body1">Genre: {movieDetails.genres}</Typography>
           </section>
         </div>
-        <Button
+        <Button 
           variant="contained"
           color="primary"
-          className={classes.homeButton}
+          className={classes.homeButton} // Button to bring the user home // 
           onClick={handleClick}
         >
           Home
